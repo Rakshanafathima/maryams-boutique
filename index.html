@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maryam's Boutique City</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -11,21 +12,21 @@
 body{
 font-family:Poppins;
 margin:0;
-background:#fff5f7;
+background:#fafafa;
 }
 
-/* HEADER */
-
 header{
-background:#ffd6de;
+background:white;
 padding:15px 40px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+flex-wrap:wrap;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
 header h2{
-color:#c94c6b;
+color:#e85d75;
 }
 
 nav a{
@@ -35,44 +36,59 @@ color:#333;
 font-weight:500;
 }
 
-/* HERO */
+nav a:hover{
+color:#e85d75;
+}
+
+#search{
+padding:7px;
+border-radius:6px;
+border:1px solid #ccc;
+margin-top:10px;
+}
 
 .hero{
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:60px;
-background:linear-gradient(#ffd6de,#fff);
+padding:70px;
+background:#fff0f4;
 }
 
-.hero h1{
-color:#c94c6b;
+.hero img{
+width:420px;
+border-radius:15px;
 }
-
-/* PRODUCTS */
 
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:25px;
 padding:40px;
 }
 
 .product{
 background:white;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
 padding:15px;
 text-align:center;
+transition:0.3s;
 }
 
 .product img{
 width:100%;
+height:230px;
+object-fit:cover;
 border-radius:10px;
 }
 
+.product:hover{
+transform:translateY(-6px);
+}
+
 .price{
-color:#c94c6b;
+color:#e85d75;
 font-weight:bold;
 }
 
@@ -83,19 +99,60 @@ border:none;
 padding:10px 15px;
 border-radius:6px;
 cursor:pointer;
+margin-top:5px;
 }
 
-/* CONTACT */
-
-.contact{
-text-align:center;
-padding:40px;
-background:#ffd6de;
+.qty,.color{
+padding:5px;
+margin-top:5px;
 }
 
-.whatsapp{
+#cart-summary{
+position:fixed;
+right:10px;
+top:120px;
+width:280px;
+background:white;
+border-radius:12px;
+padding:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+max-height:80vh;
+overflow-y:auto;
+}
+
+#checkout-btn{
 background:#25D366;
+width:100%;
 margin-top:10px;
+}
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:40px;
+}
+
+@media(max-width:900px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero img{
+margin-top:20px;
+width:90%;
+}
+
+#cart-summary{
+position:relative;
+width:95%;
+margin:auto;
+top:auto;
+}
+
 }
 
 </style>
@@ -104,76 +161,253 @@ margin-top:10px;
 <body>
 
 <header>
+
 <h2>Maryam's Boutique City</h2>
 
 <nav>
-<a href="#">Home</a>
-<a href="#">Shop</a>
-<a href="#">About</a>
-<a href="#">Contact</a>
+
+<a href="#" onclick="filterCategory('All')">All</a>
+<a href="#" onclick="filterCategory('Women Clothing')">Women</a>
+<a href="#" onclick="filterCategory('Beauty')">Beauty</a>
+<a href="#" onclick="filterCategory('Kids')">Kids</a>
+<a href="#" onclick="filterCategory('Accessories')">Accessories</a>
+<a href="#" onclick="filterCategory('Footwear')">Footwear</a>
+
 </nav>
+
+<input type="text" id="search" placeholder="Search products">
 
 </header>
 
 <section class="hero">
 
 <div>
-<h1>Welcome to Maryam's Boutique</h1>
-<p>Beautiful Styles for Every Woman</p>
+<h1>Maryam's Boutique</h1>
+<p>Beautiful Fashion for Every Woman</p>
+<button onclick="filterCategory('Women Clothing')">Shop Now</button>
 </div>
 
-<img src="https://images.unsplash.com/photo-1520975922284-1c1c6f9c8f3e?w=400">
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=700">
 
 </section>
-
 
 <section class="products">
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1588117260148-b47818741c74?w=400">
+<div class="product" data-category="Women Clothing">
+<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=500">
 <h3>Floral Dress</h3>
-<p class="price">Rs 3200</p>
-<button>Add to Cart</button>
+<p class="price">3200</p>
+
+<select class="qty">
+<option>1</option>
+<option>2</option>
+<option>3</option>
+</select>
+
+<select class="color">
+<option>Red</option>
+<option>Blue</option>
+<option>Black</option>
+</select>
+
+<button class="add">Add to Cart</button>
 </div>
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400">
+<div class="product" data-category="Beauty">
+<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500">
+<h3>Facial Kit</h3>
+<p class="price">1200</p>
+
+<select class="qty">
+<option>1</option>
+<option>2</option>
+</select>
+
+<select class="color">
+<option>Default</option>
+</select>
+
+<button class="add">Add to Cart</button>
+</div>
+
+<div class="product" data-category="Kids">
+<img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=500">
+<h3>Kids Dress</h3>
+<p class="price">900</p>
+
+<select class="qty">
+<option>1</option>
+<option>2</option>
+</select>
+
+<select class="color">
+<option>Pink</option>
+<option>Blue</option>
+</select>
+
+<button class="add">Add to Cart</button>
+</div>
+
+<div class="product" data-category="Accessories">
+<img src="https://images.unsplash.com/photo-1602810316498-ab67cf68c8e1?w=500">
 <h3>Velvet Bangles</h3>
-<p class="price">Rs 1200</p>
-<button>Add to Cart</button>
+<p class="price">1200</p>
+
+<select class="qty">
+<option>1</option>
+<option>2</option>
+</select>
+
+<select class="color">
+<option>Red</option>
+<option>Green</option>
+</select>
+
+<button class="add">Add to Cart</button>
 </div>
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=400">
-<h3>Hair Scrunchies</h3>
-<p class="price">Rs 1500</p>
-<button>Add to Cart</button>
-</div>
+<div class="product" data-category="Footwear">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500">
+<h3>Stylish Shoes</h3>
+<p class="price">1800</p>
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=400">
-<h3>Lace Bralette</h3>
-<p class="price">Rs 1500</p>
-<button>Add to Cart</button>
+<select class="qty">
+<option>1</option>
+<option>2</option>
+</select>
+
+<select class="color">
+<option>Black</option>
+<option>Brown</option>
+</select>
+
+<button class="add">Add to Cart</button>
 </div>
 
 </section>
 
+<div id="cart-summary">
 
-<section class="contact">
+<h3>Cart</h3>
 
-<h2>WhatsApp Orders</h2>
+<ul id="cart-items"></ul>
 
-<p>+94 778659555</p>
+<button id="checkout-btn">Order on WhatsApp</button>
 
-<a href="https://wa.me/94778659555">
-<button class="whatsapp">Order on WhatsApp</button>
-</a>
+</div>
 
-<p>Location : Sri Lanka</p>
+<footer>
 
-</section>
+<h3>Maryam's Boutique City</h3>
+<p>Fashion • Beauty • Accessories</p>
+<p>WhatsApp Orders : +94 0778659555</p>
+<p>© 2026 Maryam's Boutique</p>
 
+</footer>
+
+<script>
+
+let cart=[];
+
+document.querySelectorAll(".add").forEach(btn=>{
+
+btn.addEventListener("click",function(){
+
+let card=this.closest(".product");
+
+let name=card.querySelector("h3").innerText;
+
+let qty=parseInt(card.querySelector(".qty").value);
+
+let color=card.querySelector(".color").value;
+
+let price=parseInt(card.querySelector(".price").innerText);
+
+cart.push({name,qty,color,price});
+
+updateCart();
+
+});
+
+});
+
+function updateCart(){
+
+let list=document.getElementById("cart-items");
+
+list.innerHTML="";
+
+let total=0;
+
+cart.forEach(item=>{
+
+let sum=item.qty*item.price;
+
+total+=sum;
+
+list.innerHTML+=`<li>${item.name} | ${item.color} | Qty:${item.qty} | Rs ${sum}</li>`;
+
+});
+
+list.innerHTML+=`<hr><b>Total Rs ${total}</b>`;
+
+}
+
+document.getElementById("checkout-btn").addEventListener("click",function(){
+
+if(cart.length===0){
+
+alert("Cart empty");
+
+return;
+
+}
+
+let msg="Hello Maryam's Boutique, I want to order:%0A";
+
+cart.forEach(item=>{
+
+msg+=`${item.name} | ${item.color} | Qty:${item.qty} | Rs ${item.qty*item.price}%0A`;
+
+});
+
+window.open(`https://wa.me/94778659555?text=${msg}`);
+
+});
+
+function filterCategory(cat){
+
+document.querySelectorAll(".product").forEach(p=>{
+
+if(cat==="All"||p.dataset.category===cat){
+
+p.style.display="block";
+
+}else{
+
+p.style.display="none";
+
+}
+
+});
+
+}
+
+document.getElementById("search").addEventListener("keyup",function(){
+
+let value=this.value.toLowerCase();
+
+document.querySelectorAll(".product").forEach(p=>{
+
+let name=p.querySelector("h3").innerText.toLowerCase();
+
+p.style.display=name.includes(value)?"block":"none";
+
+});
+
+});
+
+</script>
 
 </body>
 </html>

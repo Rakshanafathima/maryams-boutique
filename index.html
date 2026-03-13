@@ -1,63 +1,115 @@
-<!DOCTYPE html>
-<html>
+<!<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maryam's Boutique City</title>
-
 <style>
-
 body{
-font-family: Arial;
-margin:0;
-background:#fff0f5;
+    font-family: 'Arial', sans-serif;
+    margin:0;
+    background:#fff0f5;
 }
 
 header{
-background:#ff4da6;
-color:white;
-padding:20px;
-text-align:center;
-font-size:28px;
+    background: linear-gradient(90deg, #ff4da6, #ffc0cb);
+    color:white;
+    padding:30px;
+    text-align:center;
+    font-size:32px;
+    font-weight:bold;
+}
+
+nav{
+    text-align:center;
+    margin:15px 0;
+}
+
+nav button{
+    background:#ff99c8;
+    border:none;
+    padding:10px 15px;
+    margin:5px;
+    border-radius:20px;
+    cursor:pointer;
+    color:white;
+    font-weight:bold;
 }
 
 .products{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    padding:20px;
 }
 
 .card{
-background:white;
-width:250px;
-margin:20px;
-padding:15px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-text-align:center;
+    background:white;
+    width:230px;
+    margin:15px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    overflow:hidden;
+    transition: transform 0.3s;
+}
+
+.card:hover{
+    transform: scale(1.05);
 }
 
 .card img{
-width:100%;
-border-radius:10px;
+    width:100%;
+    height:200px;
+    object-fit:cover;
 }
 
-button{
-background:#25D366;
-color:white;
-border:none;
-padding:10px 15px;
-font-size:16px;
-border-radius:5px;
-cursor:pointer;
+.card h3{
+    margin:10px 0 5px 0;
+    color:#e60073;
+}
+
+.card p{
+    margin:5px 0;
+    color:#333;
+}
+
+.card select{
+    width:80%;
+    margin:5px 10%;
+    padding:7px;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+.card a button{
+    background:#25D366;
+    width:90%;
+    margin:10px 5%;
+    padding:10px;
+    border:none;
+    border-radius:5px;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
 }
 
 footer{
-background:#ff4da6;
-color:white;
-text-align:center;
-padding:15px;
-margin-top:20px;
+    background: linear-gradient(90deg, #ff4da6, #ffc0cb);
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
 }
 
+@media (max-width:600px){
+    .products{
+        flex-direction:column;
+        align-items:center;
+    }
+    .card{
+        width:90%;
+    }
+}
 </style>
 </head>
 
@@ -67,40 +119,113 @@ margin-top:20px;
 Maryam's Boutique City
 </header>
 
+<nav>
+<button onclick="filterCategory('All')">All</button>
+<button onclick="filterCategory('Bangles')">Bangles</button>
+<button onclick="filterCategory('Dress')">Dress</button>
+<button onclick="filterCategory('Scrunchie')">Scrunchie</button>
+</nav>
+
 <div class="products">
 
-<div class="card">
-<img src="https://via.placeholder.com/250">
+<!-- Product Card Example -->
+<div class="card" data-category="Bangles">
+<img src="https://via.placeholder.com/230x200?text=Bangles" alt="Velvet Bangles">
 <h3>Velvet Bangles</h3>
 <p>Price: Rs 1200</p>
-<a href="https://wa.me/94778659555">
-<button>Order on WhatsApp</button>
-</a>
+
+<select class="qty">
+<option value="1">Qty: 1</option>
+<option value="2">Qty: 2</option>
+<option value="3">Qty: 3</option>
+<option value="4">Qty: 4</option>
+</select>
+
+<select class="color">
+<option value="Red">Red</option>
+<option value="Green">Green</option>
+<option value="Black">Black</option>
+</select>
+
+<a href="#" class="wa-link"><button>Order on WhatsApp</button></a>
 </div>
 
-<div class="card">
-<img src="https://via.placeholder.com/250">
-<h3>Hair Scrunchie</h3>
-<p>Price: Rs 350</p>
-<a href="https://wa.me/94778659555">
-<button>Order on WhatsApp</button>
-</a>
-</div>
-
-<div class="card">
-<img src="https://via.placeholder.com/250">
+<div class="card" data-category="Dress">
+<img src="https://via.placeholder.com/230x200?text=Dress" alt="Women's Dress">
 <h3>Women's Dress</h3>
 <p>Price: Rs 2500</p>
-<a href="https://wa.me/94778659555">
-<button>Order on WhatsApp</button>
-</a>
+
+<select class="qty">
+<option value="1">Qty: 1</option>
+<option value="2">Qty: 2</option>
+<option value="3">Qty: 3</option>
+<option value="4">Qty: 4</option>
+</select>
+
+<select class="color">
+<option value="Blue">Blue</option>
+<option value="Pink">Pink</option>
+<option value="White">White</option>
+</select>
+
+<a href="#" class="wa-link"><button>Order on WhatsApp</button></a>
 </div>
+
+<div class="card" data-category="Scrunchie">
+<img src="https://via.placeholder.com/230x200?text=Scrunchie" alt="Hair Scrunchie">
+<h3>Hair Scrunchie</h3>
+<p>Price: Rs 350</p>
+
+<select class="qty">
+<option value="1">Qty: 1</option>
+<option value="2">Qty: 2</option>
+<option value="3">Qty: 3</option>
+<option value="4">Qty: 4</option>
+</select>
+
+<select class="color">
+<option value="Yellow">Yellow</option>
+<option value="Pink">Pink</option>
+<option value="Purple">Purple</option>
+</select>
+
+<a href="#" class="wa-link"><button>Order on WhatsApp</button></a>
+</div>
+
+<!-- Add more product cards here -->
 
 </div>
 
 <footer>
 Maryam's Boutique City | WhatsApp Orders: 0778659555
 </footer>
+
+<script>
+function filterCategory(cat){
+    let cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        if(cat==='All' || card.getAttribute('data-category')===cat){
+            card.style.display='block';
+        } else {
+            card.style.display='none';
+        }
+    });
+}
+
+// WhatsApp auto message for each product
+document.querySelectorAll('.wa-link').forEach(function(link){
+    link.addEventListener('click', function(e){
+        e.preventDefault();
+        let card = link.closest('.card');
+        let product = card.querySelector('h3').innerText;
+        let qty = card.querySelector('.qty').value;
+        let color = card.querySelector('.color').value;
+        let msg = `Hello Maryam's Boutique City, I want to order:\nProduct: ${product}\nQuantity: ${qty}\nColor: ${color}`;
+        let waNumber = "94778659555";
+        window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+    });
+});
+</script>
 
 </body>
 </html>

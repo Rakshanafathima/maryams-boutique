@@ -1,195 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maryam's Boutique City</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-body{font-family:Poppins;margin:0;background:#fff5f7;}
-header{background:linear-gradient(90deg,#ffd6de,#ffc0cb);padding:15px 40px;display:flex;justify-content:space-between;align-items:center;}
-header h2{color:#c94c6b;}
-nav a{margin:0 10px;text-decoration:none;color:#333;font-weight:500;}
-.hero{display:flex;align-items:center;justify-content:space-between;padding:60px;background:linear-gradient(#ffd6de,#fff);}
-.hero h1{color:#c94c6b;}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;padding:40px;}
-.product{background:white;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);padding:15px;text-align:center;transition: transform 0.3s;}
-.product:hover{transform:scale(1.05);}
-.product img{width:100%;border-radius:10px;}
-.price{color:#c94c6b;font-weight:bold;}
-button{background:#e85d75;color:white;border:none;padding:10px 15px;border-radius:6px;cursor:pointer;}
-.contact{text-align:center;padding:40px;background:#ffd6de;}
-.whatsapp{background:#25D366;margin-top:10px;}
-#cart-summary{position:fixed;right:10px;top:120px;width:300px;background:white;border-radius:15px;padding:15px;box-shadow:0 4px 15px rgba(0,0,0,0.2);max-height:80vh;overflow-y:auto;}
-#cart-summary h3{text-align:center;color:#e60073;}
-#cart-summary ul{list-style:none;padding:0;}
-#cart-summary li{margin:5px 0;font-size:14px;}
-#checkout-btn{background:#25D366;width:100%;padding:10px;border:none;border-radius:5px;color:white;font-size:16px;cursor:pointer;margin-top:10px;}
-#address{width:90%;padding:8px;margin:5px 0;border-radius:5px;border:1px solid #ccc;}
-@media(max-width:900px){#cart-summary{position:relative;width:95%;margin:auto;top:auto;right:auto;}}
-</style>
-</head>
-<body>
-
 <header>
 <h2>Maryam's Boutique City</h2>
+
 <nav>
-<a href="#" onclick="filterCategory('All')">All</a>
-<a href="#" onclick="filterCategory('Women Clothing')">Women Clothing</a>
-<a href="#" onclick="filterCategory('Beauty & Personal Care')">Beauty & Personal Care</a>
-<a href="#" onclick="filterCategory('Kids Wear')">Kids Wear</a>
-<a href="#" onclick="filterCategory('Accessories')">Accessories</a>
-<a href="#" onclick="filterCategory('Footwear')">Footwear</a>
-<a href="#" onclick="filterCategory('Home & Lifestyle')">Home & Lifestyle</a>
+<a href="#">All</a>
+<a href="#">Women Clothing</a>
+<a href="#">Beauty</a>
+<a href="#">Kids Wear</a>
+<a href="#">Accessories</a>
+<a href="#">Footwear</a>
 </nav>
+
+<input type="text" placeholder="Search products">
 </header>
-
 <section class="hero">
-<div>
-<h1>Welcome to Maryam's Boutique</h1>
-<p>Beautiful Styles for Every Woman</p>
-</div>
-<img src="https://images.unsplash.com/photo-1520975922284-1c1c6f9c8f3e?w=400">
+
+<h1>New Fashion Collection</h1>
+<p>Discover the latest styles</p>
+
+<button>Shop Now</button>
+
 </section>
+https://images.unsplash.com/photo-1483985988355-763728e1935b
 
-<section class="products">
+<div class="product">
 
-<!-- Sample Product Cards -->
+<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d">
 
-<div class="product" data-category="Women Clothing">
-<img src="https://images.unsplash.com/photo-1588117260148-b47818741c74?w=400" alt="Floral Dress">
 <h3>Floral Dress</h3>
-<p class="price">3200</p>
-<select class="qty"><option value="1">1</option><option value="2">2</option></select>
-<select class="color"><option value="Red">Red</option><option value="Blue">Blue</option></select>
-<button class="add-to-cart">Add to Cart</button>
+
+<p class="price">Rs 3200</p>
+
+<button>Add to Cart</button>
+
 </div>
 
-<div class="product" data-category="Beauty & Personal Care">
-<img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400" alt="Facial Kit">
-<h3>Facial Kit</h3>
-<p class="price">1200</p>
-<select class="qty"><option value="1">1</option><option value="2">2</option></select>
-<select class="color"><option value="Default">Default</option></select>
-<button class="add-to-cart">Add to Cart</button>
-</div>
+<section class="gallery">
 
-<!-- Add more products similarly -->
+<h2>Latest Collection</h2>
+
+<img src="https://images.unsplash.com/photo-1520975922284-1c1c6f9c8f3e">
+<img src="https://images.unsplash.com/photo-1509631179647-0177331693ae">
 
 </section>
+<section class="reviews">
 
-<!-- Cart Summary -->
-<div id="cart-summary">
-<h3>Cart Summary</h3>
-<label for="address">Your Address:</label>
-<input type="text" id="address" placeholder="Ampara road, Aalim Nagar, Akkaraipattu">
-<ul id="cart-items"></ul>
-<p id="total-amount"><b>Total: Rs 0</b></p>
-<button id="checkout-btn">Submit Order on WhatsApp</button>
-</div>
+<h2>Customer Reviews</h2>
 
+<p>"Very beautiful dresses and good quality!"</p>
+
+<p>"Fast WhatsApp order and friendly service."</p>
+
+</section>
 <section class="contact">
-<h2>WhatsApp Orders</h2>
-<p>+94 0778659555</p>
-<a href="https://wa.me/94778659555"><button class="whatsapp">Order on WhatsApp</button></a>
-<p>Location : Sri Lanka</p>
+
+<h2>Visit Our Boutique</h2>
+
+<p>
+Ampara Road<br>
+Aalim Nagar<br>
+Akkaraipattu<br>
+Sri Lanka
+</p>
+
+<p>WhatsApp: +94778659555</p>
+
 </section>
 
-<script>
-let cart=[];
+<footer>
 
-function filterCategory(cat){
-let cards=document.querySelectorAll('.product');
-cards.forEach(card=>{
-if(cat==='All'||card.getAttribute('data-category')===cat){card.style.display='block';}else{card.style.display='none';}
-});
-}
+<p>Maryam's Boutique City</p>
 
-// Add to Cart
-document.querySelectorAll('.add-to-cart').forEach(btn=>{
-btn.addEventListener('click',function(){
-let card=btn.closest('.product');
-let product=card.querySelector('h3').innerText;
-let qty=parseInt(card.querySelector('.qty').value);
-let color=card.querySelector('.color').value;
-let price=parseInt(card.querySelector('.price').innerText);
-let category=card.getAttribute('data-category');
+<p>Ampara Road, Aalim Nagar, Akkaraipattu</p>
 
-let existing=cart.find(item=>item.product===product && item.color===color);
-if(existing){existing.qty+=qty;}else{cart.push({category,product,qty,color,price});}
-updateCart();
-});
-});
+<p>© 2026 Maryam's Boutique</p>
 
-function updateCart(){
-let cartItems=document.getElementById('cart-items');
-let totalAmount=0;
-cartItems.innerHTML='';
-let grouped={};
-cart.forEach(item=>{
-if(!grouped[item.category]) grouped[item.category]=[];
-grouped[item.category].push(item);
-});
-for(let cat in grouped){
-let catTotal=0;
-cartItems.innerHTML+=`<li><b>${cat}</b></li>`;
-grouped[cat].forEach(it=>{
-catTotal+=it.qty*it.price;
-cartItems.innerHTML+=`<li>${it.product} | ${it.color} | Qty: ${it.qty} | Rs ${it.price*it.qty}</li>`;
-});
-cartItems.innerHTML+=`<li><b>Category Total: Rs ${catTotal}</b></li><hr>`;
-totalAmount+=catTotal;
-});
-document.getElementById('total-amount').innerHTML=`<b>Total: Rs ${totalAmount}</b>`;
-}
+</footer>
 
-// WhatsApp Submit
-document.getElementById('checkout-btn').addEventListener('click',function(){
-if(cart.length===0){alert('Cart is empty'); return;}
-let address=document.getElementById('address').value || "Ampara road, Aalim Nagar, Akkaraipattu";
-let grouped={};
-cart.forEach(item=>{
-if(!grouped[item.category]) grouped[item.category]=[];
-grouped[item.category].push(item);
-});
-let msg=`Hello Maryam's Boutique City, I want to order from address: ${address}\n`;
-for(let cat in grouped){
-let catTotal=0;
-msg+=`\nCategory: ${cat}\n`;
-grouped[cat].forEach(it=>{
-msg+=`- ${it.product}, Color: ${it.color}, Qty: ${it.qty}, Price: Rs ${it.qty*it.price}\n`;
-catTotal+=it.qty*it.price;
-});
-msg+=`Category Total: Rs ${catTotal}\n`;
-}
-let waNumber="94778659555";
-window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`,'_blank');
-});
-</script>
-
-</body>
-</html>
-<!-- Address removed from user input, shop address added in WhatsApp message -->
-<p>Shop Address: Ampara road, Aalim Nagar, Akkaraipattu</p>
-// WhatsApp Submit
-document.getElementById('checkout-btn').addEventListener('click',function(){
-if(cart.length===0){alert('Cart is empty'); return;}
-let shopAddress="Ampara road, Aalim Nagar, Akkaraipattu";
-let grouped={};
-cart.forEach(item=>{
-if(!grouped[item.category]) grouped[item.category]=[];
-grouped[item.category].push(item);
-});
-let msg=`Hello Maryam's Boutique City (Shop Address: ${shopAddress})\nI want to order:\n`;
-for(let cat in grouped){
-let catTotal=0;
-msg+=`\nCategory: ${cat}\n`;
-grouped[cat].forEach(it=>{
-msg+=`- ${it.product}, Color: ${it.color}, Qty: ${it.qty}, Price: Rs ${it.qty*it.price}\n`;
-catTotal+=it.qty*it.price;
-});
-msg+=`Category Total: Rs ${catTotal}\n`;
-}
-let waNumber="94778659555";
-window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`,'_blank');
-});

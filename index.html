@@ -4,410 +4,192 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maryam's Boutique City</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
 <style>
-
-body{
-font-family:Poppins;
-margin:0;
-background:#fafafa;
-}
-
-header{
-background:white;
-padding:15px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
-
-header h2{
-color:#e85d75;
-}
-
-nav a{
-margin:0 10px;
-text-decoration:none;
-color:#333;
-font-weight:500;
-}
-
-nav a:hover{
-color:#e85d75;
-}
-
-#search{
-padding:7px;
-border-radius:6px;
-border:1px solid #ccc;
-margin-top:10px;
-}
-
-.hero{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:70px;
-background:#fff0f4;
-}
-
-.hero img{
-width:420px;
-border-radius:15px;
-}
-
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:25px;
-padding:40px;
-}
-
-.product{
-background:white;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-padding:15px;
-text-align:center;
-transition:0.3s;
-}
-
-.product img{
-width:100%;
-height:230px;
-object-fit:cover;
-border-radius:10px;
-}
-
-.product:hover{
-transform:translateY(-6px);
-}
-
-.price{
-color:#e85d75;
-font-weight:bold;
-}
-
-button{
-background:#e85d75;
-color:white;
-border:none;
-padding:10px 15px;
-border-radius:6px;
-cursor:pointer;
-margin-top:5px;
-}
-
-.qty,.color{
-padding:5px;
-margin-top:5px;
-}
-
-#cart-summary{
-position:fixed;
-right:10px;
-top:120px;
-width:280px;
-background:white;
-border-radius:12px;
-padding:15px;
-box-shadow:0 5px 20px rgba(0,0,0,0.2);
-max-height:80vh;
-overflow-y:auto;
-}
-
-#checkout-btn{
-background:#25D366;
-width:100%;
-margin-top:10px;
-}
-
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:30px;
-margin-top:40px;
-}
-
-@media(max-width:900px){
-
-.hero{
-flex-direction:column;
-text-align:center;
-}
-
-.hero img{
-margin-top:20px;
-width:90%;
-}
-
-#cart-summary{
-position:relative;
-width:95%;
-margin:auto;
-top:auto;
-}
-
-}
-
+body{font-family:Poppins;margin:0;background:#fff5f7;}
+header{background:linear-gradient(90deg,#ffd6de,#ffc0cb);padding:15px 40px;display:flex;justify-content:space-between;align-items:center;}
+header h2{color:#c94c6b;}
+nav a{margin:0 10px;text-decoration:none;color:#333;font-weight:500;}
+.hero{display:flex;align-items:center;justify-content:space-between;padding:60px;background:linear-gradient(#ffd6de,#fff);}
+.hero h1{color:#c94c6b;}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;padding:40px;}
+.product{background:white;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,0.1);padding:15px;text-align:center;transition: transform 0.3s;}
+.product:hover{transform:scale(1.05);}
+.product img{width:100%;border-radius:10px;}
+.price{color:#c94c6b;font-weight:bold;}
+button{background:#e85d75;color:white;border:none;padding:10px 15px;border-radius:6px;cursor:pointer;}
+.contact{text-align:center;padding:40px;background:#ffd6de;}
+.whatsapp{background:#25D366;margin-top:10px;}
+#cart-summary{position:fixed;right:10px;top:120px;width:300px;background:white;border-radius:15px;padding:15px;box-shadow:0 4px 15px rgba(0,0,0,0.2);max-height:80vh;overflow-y:auto;}
+#cart-summary h3{text-align:center;color:#e60073;}
+#cart-summary ul{list-style:none;padding:0;}
+#cart-summary li{margin:5px 0;font-size:14px;}
+#checkout-btn{background:#25D366;width:100%;padding:10px;border:none;border-radius:5px;color:white;font-size:16px;cursor:pointer;margin-top:10px;}
+#address{width:90%;padding:8px;margin:5px 0;border-radius:5px;border:1px solid #ccc;}
+@media(max-width:900px){#cart-summary{position:relative;width:95%;margin:auto;top:auto;right:auto;}}
 </style>
 </head>
-
 <body>
 
 <header>
-
 <h2>Maryam's Boutique City</h2>
-
 <nav>
-
 <a href="#" onclick="filterCategory('All')">All</a>
-<a href="#" onclick="filterCategory('Women Clothing')">Women</a>
-<a href="#" onclick="filterCategory('Beauty')">Beauty</a>
-<a href="#" onclick="filterCategory('Kids')">Kids</a>
+<a href="#" onclick="filterCategory('Women Clothing')">Women Clothing</a>
+<a href="#" onclick="filterCategory('Beauty & Personal Care')">Beauty & Personal Care</a>
+<a href="#" onclick="filterCategory('Kids Wear')">Kids Wear</a>
 <a href="#" onclick="filterCategory('Accessories')">Accessories</a>
 <a href="#" onclick="filterCategory('Footwear')">Footwear</a>
-
+<a href="#" onclick="filterCategory('Home & Lifestyle')">Home & Lifestyle</a>
 </nav>
-
-<input type="text" id="search" placeholder="Search products">
-
 </header>
 
 <section class="hero">
-
 <div>
-<h1>Maryam's Boutique</h1>
-<p>Beautiful Fashion for Every Woman</p>
-<button onclick="filterCategory('Women Clothing')">Shop Now</button>
+<h1>Welcome to Maryam's Boutique</h1>
+<p>Beautiful Styles for Every Woman</p>
 </div>
-
-<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=700">
-
+<img src="https://images.unsplash.com/photo-1520975922284-1c1c6f9c8f3e?w=400">
 </section>
 
 <section class="products">
 
+<!-- Sample Product Cards -->
+
 <div class="product" data-category="Women Clothing">
-<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=500">
+<img src="https://images.unsplash.com/photo-1588117260148-b47818741c74?w=400" alt="Floral Dress">
 <h3>Floral Dress</h3>
 <p class="price">3200</p>
-
-<select class="qty">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-</select>
-
-<select class="color">
-<option>Red</option>
-<option>Blue</option>
-<option>Black</option>
-</select>
-
-<button class="add">Add to Cart</button>
+<select class="qty"><option value="1">1</option><option value="2">2</option></select>
+<select class="color"><option value="Red">Red</option><option value="Blue">Blue</option></select>
+<button class="add-to-cart">Add to Cart</button>
 </div>
 
-<div class="product" data-category="Beauty">
-<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500">
+<div class="product" data-category="Beauty & Personal Care">
+<img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400" alt="Facial Kit">
 <h3>Facial Kit</h3>
 <p class="price">1200</p>
-
-<select class="qty">
-<option>1</option>
-<option>2</option>
-</select>
-
-<select class="color">
-<option>Default</option>
-</select>
-
-<button class="add">Add to Cart</button>
+<select class="qty"><option value="1">1</option><option value="2">2</option></select>
+<select class="color"><option value="Default">Default</option></select>
+<button class="add-to-cart">Add to Cart</button>
 </div>
 
-<div class="product" data-category="Kids">
-<img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=500">
-<h3>Kids Dress</h3>
-<p class="price">900</p>
-
-<select class="qty">
-<option>1</option>
-<option>2</option>
-</select>
-
-<select class="color">
-<option>Pink</option>
-<option>Blue</option>
-</select>
-
-<button class="add">Add to Cart</button>
-</div>
-
-<div class="product" data-category="Accessories">
-<img src="https://images.unsplash.com/photo-1602810316498-ab67cf68c8e1?w=500">
-<h3>Velvet Bangles</h3>
-<p class="price">1200</p>
-
-<select class="qty">
-<option>1</option>
-<option>2</option>
-</select>
-
-<select class="color">
-<option>Red</option>
-<option>Green</option>
-</select>
-
-<button class="add">Add to Cart</button>
-</div>
-
-<div class="product" data-category="Footwear">
-<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500">
-<h3>Stylish Shoes</h3>
-<p class="price">1800</p>
-
-<select class="qty">
-<option>1</option>
-<option>2</option>
-</select>
-
-<select class="color">
-<option>Black</option>
-<option>Brown</option>
-</select>
-
-<button class="add">Add to Cart</button>
-</div>
+<!-- Add more products similarly -->
 
 </section>
 
+<!-- Cart Summary -->
 <div id="cart-summary">
-
-<h3>Cart</h3>
-
+<h3>Cart Summary</h3>
+<label for="address">Your Address:</label>
+<input type="text" id="address" placeholder="Ampara road, Aalim Nagar, Akkaraipattu">
 <ul id="cart-items"></ul>
-
-<button id="checkout-btn">Order on WhatsApp</button>
-
+<p id="total-amount"><b>Total: Rs 0</b></p>
+<button id="checkout-btn">Submit Order on WhatsApp</button>
 </div>
 
-<footer>
-
-<h3>Maryam's Boutique City</h3>
-<p>Fashion • Beauty • Accessories</p>
-<p>WhatsApp Orders : +94 0778659555</p>
-<p>© 2026 Maryam's Boutique</p>
-
-</footer>
+<section class="contact">
+<h2>WhatsApp Orders</h2>
+<p>+94 0778659555</p>
+<a href="https://wa.me/94778659555"><button class="whatsapp">Order on WhatsApp</button></a>
+<p>Location : Sri Lanka</p>
+</section>
 
 <script>
-
 let cart=[];
 
-document.querySelectorAll(".add").forEach(btn=>{
-
-btn.addEventListener("click",function(){
-
-let card=this.closest(".product");
-
-let name=card.querySelector("h3").innerText;
-
-let qty=parseInt(card.querySelector(".qty").value);
-
-let color=card.querySelector(".color").value;
-
-let price=parseInt(card.querySelector(".price").innerText);
-
-cart.push({name,qty,color,price});
-
-updateCart();
-
+function filterCategory(cat){
+let cards=document.querySelectorAll('.product');
+cards.forEach(card=>{
+if(cat==='All'||card.getAttribute('data-category')===cat){card.style.display='block';}else{card.style.display='none';}
 });
+}
 
+// Add to Cart
+document.querySelectorAll('.add-to-cart').forEach(btn=>{
+btn.addEventListener('click',function(){
+let card=btn.closest('.product');
+let product=card.querySelector('h3').innerText;
+let qty=parseInt(card.querySelector('.qty').value);
+let color=card.querySelector('.color').value;
+let price=parseInt(card.querySelector('.price').innerText);
+let category=card.getAttribute('data-category');
+
+let existing=cart.find(item=>item.product===product && item.color===color);
+if(existing){existing.qty+=qty;}else{cart.push({category,product,qty,color,price});}
+updateCart();
+});
 });
 
 function updateCart(){
-
-let list=document.getElementById("cart-items");
-
-list.innerHTML="";
-
-let total=0;
-
+let cartItems=document.getElementById('cart-items');
+let totalAmount=0;
+cartItems.innerHTML='';
+let grouped={};
 cart.forEach(item=>{
-
-let sum=item.qty*item.price;
-
-total+=sum;
-
-list.innerHTML+=`<li>${item.name} | ${item.color} | Qty:${item.qty} | Rs ${sum}</li>`;
-
+if(!grouped[item.category]) grouped[item.category]=[];
+grouped[item.category].push(item);
 });
-
-list.innerHTML+=`<hr><b>Total Rs ${total}</b>`;
-
+for(let cat in grouped){
+let catTotal=0;
+cartItems.innerHTML+=`<li><b>${cat}</b></li>`;
+grouped[cat].forEach(it=>{
+catTotal+=it.qty*it.price;
+cartItems.innerHTML+=`<li>${it.product} | ${it.color} | Qty: ${it.qty} | Rs ${it.price*it.qty}</li>`;
+});
+cartItems.innerHTML+=`<li><b>Category Total: Rs ${catTotal}</b></li><hr>`;
+totalAmount+=catTotal;
+});
+document.getElementById('total-amount').innerHTML=`<b>Total: Rs ${totalAmount}</b>`;
 }
 
-document.getElementById("checkout-btn").addEventListener("click",function(){
-
-if(cart.length===0){
-
-alert("Cart empty");
-
-return;
-
-}
-
-let msg="Hello Maryam's Boutique, I want to order:%0A";
-
+// WhatsApp Submit
+document.getElementById('checkout-btn').addEventListener('click',function(){
+if(cart.length===0){alert('Cart is empty'); return;}
+let address=document.getElementById('address').value || "Ampara road, Aalim Nagar, Akkaraipattu";
+let grouped={};
 cart.forEach(item=>{
-
-msg+=`${item.name} | ${item.color} | Qty:${item.qty} | Rs ${item.qty*item.price}%0A`;
-
+if(!grouped[item.category]) grouped[item.category]=[];
+grouped[item.category].push(item);
 });
-
-window.open(`https://wa.me/94778659555?text=${msg}`);
-
+let msg=`Hello Maryam's Boutique City, I want to order from address: ${address}\n`;
+for(let cat in grouped){
+let catTotal=0;
+msg+=`\nCategory: ${cat}\n`;
+grouped[cat].forEach(it=>{
+msg+=`- ${it.product}, Color: ${it.color}, Qty: ${it.qty}, Price: Rs ${it.qty*it.price}\n`;
+catTotal+=it.qty*it.price;
 });
-
-function filterCategory(cat){
-
-document.querySelectorAll(".product").forEach(p=>{
-
-if(cat==="All"||p.dataset.category===cat){
-
-p.style.display="block";
-
-}else{
-
-p.style.display="none";
-
+msg+=`Category Total: Rs ${catTotal}\n`;
 }
-
+let waNumber="94778659555";
+window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`,'_blank');
 });
-
-}
-
-document.getElementById("search").addEventListener("keyup",function(){
-
-let value=this.value.toLowerCase();
-
-document.querySelectorAll(".product").forEach(p=>{
-
-let name=p.querySelector("h3").innerText.toLowerCase();
-
-p.style.display=name.includes(value)?"block":"none";
-
-});
-
-});
-
 </script>
 
 </body>
 </html>
+<!-- Address removed from user input, shop address added in WhatsApp message -->
+<p>Shop Address: Ampara road, Aalim Nagar, Akkaraipattu</p>
+// WhatsApp Submit
+document.getElementById('checkout-btn').addEventListener('click',function(){
+if(cart.length===0){alert('Cart is empty'); return;}
+let shopAddress="Ampara road, Aalim Nagar, Akkaraipattu";
+let grouped={};
+cart.forEach(item=>{
+if(!grouped[item.category]) grouped[item.category]=[];
+grouped[item.category].push(item);
+});
+let msg=`Hello Maryam's Boutique City (Shop Address: ${shopAddress})\nI want to order:\n`;
+for(let cat in grouped){
+let catTotal=0;
+msg+=`\nCategory: ${cat}\n`;
+grouped[cat].forEach(it=>{
+msg+=`- ${it.product}, Color: ${it.color}, Qty: ${it.qty}, Price: Rs ${it.qty*it.price}\n`;
+catTotal+=it.qty*it.price;
+});
+msg+=`Category Total: Rs ${catTotal}\n`;
+}
+let waNumber="94778659555";
+window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`,'_blank');
+});

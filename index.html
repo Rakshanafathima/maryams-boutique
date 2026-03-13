@@ -2,37 +2,105 @@
 <html>
 <head>
 <title>Maryam's Boutique City</title>
+
 <style>
+
 body{
 font-family: Arial;
+margin:0;
+background:#fff0f5;
+}
+
+header{
+background:#ff4da6;
+color:white;
+padding:20px;
 text-align:center;
-background:#ffe6f0;
+font-size:28px;
 }
-h1{
-color:#e60073;
+
+.products{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
 }
+
+.card{
+background:white;
+width:250px;
+margin:20px;
+padding:15px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.card img{
+width:100%;
+border-radius:10px;
+}
+
 button{
 background:#25D366;
 color:white;
-padding:10px 20px;
 border:none;
-border-radius:5px;
+padding:10px 15px;
 font-size:16px;
+border-radius:5px;
+cursor:pointer;
 }
+
+footer{
+background:#ff4da6;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:20px;
+}
+
 </style>
 </head>
 
 <body>
 
-<h1>Maryam's Boutique City</h1>
-<p>Welcome to our online boutique</p>
+<header>
+Maryam's Boutique City
+</header>
 
-<h3>Velvet Bangles Pack</h3>
+<div class="products">
+
+<div class="card">
+<img src="https://via.placeholder.com/250">
+<h3>Velvet Bangles</h3>
 <p>Price: Rs 1200</p>
-
 <a href="https://wa.me/94778659555">
 <button>Order on WhatsApp</button>
 </a>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/250">
+<h3>Hair Scrunchie</h3>
+<p>Price: Rs 350</p>
+<a href="https://wa.me/94778659555">
+<button>Order on WhatsApp</button>
+</a>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/250">
+<h3>Women's Dress</h3>
+<p>Price: Rs 2500</p>
+<a href="https://wa.me/94778659555">
+<button>Order on WhatsApp</button>
+</a>
+</div>
+
+</div>
+
+<footer>
+Maryam's Boutique City | WhatsApp Orders: 0778659555
+</footer>
 
 </body>
 </html>

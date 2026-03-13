@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maryam's Boutique City</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
 <style>
 body{font-family:Poppins;margin:0;background:#fafafa;}
 header{background:white;padding:15px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
@@ -41,7 +39,6 @@ footer{background:#111;color:white;text-align:center;padding:30px;margin-top:40p
 }
 </style>
 </head>
-
 <body>
 
 <header>
@@ -50,7 +47,7 @@ footer{background:#111;color:white;text-align:center;padding:30px;margin-top:40p
 <a href="#" onclick="filterCategory('All')">All</a>
 <a href="#" onclick="filterCategory('Women Clothing')">Women</a>
 <a href="#" onclick="filterCategory('Beauty')">Beauty</a>
-<a href="#" onclick="filterCategory('Kids')">Kids</a>
+<a href="#" onclick="filterCategory('Kids Wear')">Kids</a>
 <a href="#" onclick="filterCategory('Accessories')">Accessories</a>
 <a href="#" onclick="filterCategory('Footwear')">Footwear</a>
 </nav>
@@ -67,54 +64,9 @@ footer{background:#111;color:white;text-align:center;padding:30px;margin-top:40p
 </section>
 
 <section class="products">
-
-<!-- Sample Products -->
-<div class="product" data-category="Women Clothing">
-<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=500">
-<h3>Floral Dress</h3>
-<p class="price">3200</p>
-<select class="qty"><option>1</option><option>2</option></select>
-<select class="color"><option>Red</option><option>Blue</option></select>
-<button class="add">Add to Cart</button>
-</div>
-
-<div class="product" data-category="Beauty">
-<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500">
-<h3>Facial Kit</h3>
-<p class="price">1200</p>
-<select class="qty"><option>1</option><option>2</option></select>
-<select class="color"><option>Default</option></select>
-<button class="add">Add to Cart</button>
-</div>
-
-<div class="product" data-category="Kids">
-<img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=500">
-<h3>Kids Dress</h3>
-<p class="price">900</p>
-<select class="qty"><option>1</option><option>2</option></select>
-<select class="color"><option>Pink</option><option>Blue</option></select>
-<button class="add">Add to Cart</button>
-</div>
-
-<div class="product" data-category="Accessories">
-<img src="https://images.unsplash.com/photo-1602810316498-ab67cf68c8e1?w=500">
-<h3>Velvet Bangles</h3>
-<p class="price">1200</p>
-<select class="qty"><option>1</option><option>2</option></select>
-<select class="color"><option>Red</option><option>Green</option></select>
-<button class="add">Add to Cart</button>
-</div>
-
-<div class="product" data-category="Footwear">
-<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500">
-<h3>Stylish Shoes</h3>
-<p class="price">1800</p>
-<select class="qty"><option>1</option><option>2</option></select>
-<select class="color"><option>Black</option><option>Brown</option></select>
-<button class="add">Add to Cart</button>
-</div>
-
-<!-- Add more products similarly for professional catalog -->
+<!-- Paste the 30 products section here (from previous message) -->
+<!-- Women Clothing 5, Beauty 5, Kids 5, Accessories 5, Footwear 5 -->
+<!-- Use the previous 30-products code -->
 </section>
 
 <div id="cart-summary">
@@ -151,7 +103,7 @@ footer{background:#111;color:white;text-align:center;padding:30px;margin-top:40p
 <h3>Maryam's Boutique City</h3>
 <p>Fashion • Beauty • Accessories</p>
 <p>Ampara Road, Aalim Nagar, Akkaraipattu</p>
-<p>WhatsApp: +94 0778659555</p>
+<p>WhatsApp:+94778659555</p>
 <p>© 2026 Maryam's Boutique City</p>
 </footer>
 
@@ -185,7 +137,7 @@ document.getElementById("checkout-btn").addEventListener("click",function(){
 if(cart.length===0){alert("Cart empty");return;}
 let msg="Hello Maryam's Boutique, I want to order:%0A";
 cart.forEach(item=>{msg+=`${item.name} | ${item.color} | Qty:${item.qty} | Rs ${item.qty*item.price}%0A`;});
-window.open(`https://wa.me/94778659555?text=${msg}`);
+window.open(`https://wa.me/+94778659555?text=${msg}`);
 });
 
 function filterCategory(cat){
@@ -202,6 +154,5 @@ p.style.display=name.includes(value)?"block":"none";
 });
 });
 </script>
-
 </body>
 </html>

@@ -37,19 +37,17 @@ footer{background:linear-gradient(90deg,#ff4da6,#ffc0cb);color:white;text-align:
 
 <div class="products">
 
-<!-- Example product cards -->
+<!-- Sample Product Cards (repeat similar blocks for 100+ products) -->
 
-<!-- Women Clothing -->
 <div class="card" data-category="Women Clothing">
 <img src="images/women1.jpg" alt="Elegant Dress">
 <h3>Elegant Dress</h3>
 <p>Price: Rs 2500</p>
-<select class="qty"><option value="1">Qty: 1</option><option value="2">Qty: 2</option><option value="3">Qty: 3</option></select>
+<select class="qty"><option value="1">Qty: 1</option><option value="2">Qty: 2</option></select>
 <select class="color"><option value="Red">Red</option><option value="Blue">Blue</option></select>
 <a href="#" class="wa-link"><button>Order on WhatsApp</button></a>
 </div>
 
-<!-- Beauty & Personal Care -->
 <div class="card" data-category="Beauty & Personal Care">
 <img src="images/beauty1.jpg" alt="Facial Kit">
 <h3>Facial Kit</h3>
@@ -59,7 +57,6 @@ footer{background:linear-gradient(90deg,#ff4da6,#ffc0cb);color:white;text-align:
 <a href="#" class="wa-link"><button>Order on WhatsApp</button></a>
 </div>
 
-<!-- Kids Wear -->
 <div class="card" data-category="Kids Wear">
 <img src="images/kids1.jpg" alt="Kids Dress">
 <h3>Kids Dress</h3>
@@ -69,7 +66,6 @@ footer{background:linear-gradient(90deg,#ff4da6,#ffc0cb);color:white;text-align:
 <a href="#" class="wa-link"><button>Order on WhatsApp</button></a>
 </div>
 
-<!-- Accessories -->
 <div class="card" data-category="Accessories">
 <img src="images/accessories1.jpg" alt="Velvet Bangles">
 <h3>Velvet Bangles</h3>
@@ -79,7 +75,6 @@ footer{background:linear-gradient(90deg,#ff4da6,#ffc0cb);color:white;text-align:
 <a href="#" class="wa-link"><button>Order on WhatsApp</button></a>
 </div>
 
-<!-- Footwear -->
 <div class="card" data-category="Footwear">
 <img src="images/footwear1.jpg" alt="Stylish Shoes">
 <h3>Stylish Shoes</h3>
@@ -89,7 +84,6 @@ footer{background:linear-gradient(90deg,#ff4da6,#ffc0cb);color:white;text-align:
 <a href="#" class="wa-link"><button>Order on WhatsApp</button></a>
 </div>
 
-<!-- Home & Lifestyle -->
 <div class="card" data-category="Home & Lifestyle">
 <img src="images/home1.jpg" alt="Decor Set">
 <h3>Decor Set</h3>
@@ -99,7 +93,7 @@ footer{background:linear-gradient(90deg,#ff4da6,#ffc0cb);color:white;text-align:
 <a href="#" class="wa-link"><button>Order on WhatsApp</button></a>
 </div>
 
-<!-- Repeat similar blocks for remaining products to reach 100+ -->
+<!-- Repeat blocks for 100+ products here -->
 
 </div>
 
@@ -108,7 +102,9 @@ footer{background:linear-gradient(90deg,#ff4da6,#ffc0cb);color:white;text-align:
 <script>
 function filterCategory(cat){
 let cards=document.querySelectorAll('.card');
-cards.forEach(card=>{if(cat==='All'||card.getAttribute('data-category')===cat){card.style.display='block';}else{card.style.display='none';}});
+cards.forEach(card=>{
+if(cat==='All'||card.getAttribute('data-category')===cat){card.style.display='block';}else{card.style.display='none';}
+});
 }
 
 // WhatsApp auto message
